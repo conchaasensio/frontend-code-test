@@ -9,8 +9,8 @@ function Toolbar() {
     const newBox = BoxModel.create({
       id: uuid(),
       color: getRandomColor(),
-      left: 10,
-      top: 20,
+      left: 100,
+      top: 200,
     });
 
     store.addBox(newBox);

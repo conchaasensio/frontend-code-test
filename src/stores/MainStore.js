@@ -14,9 +14,13 @@ const MainStore = types
       },
 
       selectBox(id) {
-        self.boxes.forEach((box) => (box.isSelected = false));
-        const boxToSelect = self.boxes.find((box) => box.id === id);
-        if (boxToSelect) boxToSelect.isSelected = true;
+        self.boxes.forEach((box) => {
+          if (box.id === id) {
+            box.isSelected = !box.isSelected;
+          } else {
+            box.deselect();
+          }
+        });
       },
 
       removeBox() {
