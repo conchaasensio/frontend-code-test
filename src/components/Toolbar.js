@@ -4,7 +4,7 @@ import store from '../stores/MainStore';
 
 function Toolbar() {
   const handleAddButton = () => {
-    store.createAndAddBox();
+    store.createBox();
   };
 
   const handleRemoveButton = () => {

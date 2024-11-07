@@ -14,7 +14,7 @@ const MainStore = types
   }))
   .actions((self) => {
     return {
-      createAndAddBox() {
+      createBox() {
         const newBox = BoxModel.create({
           id: uuid(),
           color: getRandomColor(),
