@@ -4,11 +4,11 @@ const BoxModel = types
   .model('Box', {
     id: types.identifier,
     isSelected: types.optional(types.boolean, false),
-    width: 200,
-    height: 100,
-    color: '#FFF000',
-    left: 200,
-    top: 100,
+    width: types.optional(types.number, 100), // Valor predeterminado de 100
+    height: types.optional(types.number, 100), // Valor predeterminado de 100
+    color: types.optional(types.string, '#FFF000'),
+    left: types.optional(types.number, 200),
+    top: types.optional(types.number, 100),
   })
   .views((self) => ({}))
   .actions((self) => ({
