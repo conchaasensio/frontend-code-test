@@ -19,20 +19,14 @@ const MainStore = types
       },
 
       selectBox(id) {
-        self.boxes.forEach((box) => {
-          if (box.id === id) {
-            box.isSelected = !box.isSelected;
-          } else {
-            box.deselect();
-          }
-        });
+        const box = self.boxes.find((box) => box.id === id);
+        if (box) {
+          box.isSelected = !box.isSelected;
+        }
       },
 
       removeBox() {
-        const selectedBoxIndex = self.boxes.findIndex((box) => box.isSelected);
-        if (selectedBoxIndex !== -1) {
-          self.boxes.splice(selectedBoxIndex, 1);
-        }
+        self.boxes = self.boxes.filter((box) => !box.isSelected);
       },
     };
   })
