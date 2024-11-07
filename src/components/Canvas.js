@@ -1,9 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import { observer } from "mobx-react";
-import Box from "../components/Box";
+import { observer } from 'mobx-react';
+import Box from '../components/Box';
 
 function Canvas({ store }) {
+  const handleBoxClick = (id) => {
+    store.selectBox(id);
+  };
   return (
     <div className="canva">
       {store.boxes.map((box, index) => (
@@ -16,6 +19,8 @@ function Canvas({ store }) {
           width={box.width}
           height={box.height}
           box={box}
+          isSelected={box.isSelected}
+          handleBoxClick={handleBoxClick}
         />
       ))}
     </div>

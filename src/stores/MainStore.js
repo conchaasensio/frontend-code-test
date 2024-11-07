@@ -12,6 +12,17 @@ const MainStore = types
       addBox(box) {
         self.boxes.push(box);
       },
+
+      selectBox(id) {
+        self.boxes.forEach((box) => (box.isSelected = false));
+        const boxToSelect = self.boxes.find((box) => box.id === id);
+        if (boxToSelect) boxToSelect.isSelected = true;
+      },
+
+      removeBox() {
+        const index = self.boxes.findIndex((box) => box.isSelected);
+        self.boxes.splice(index, 1);
+      },
     };
   })
   .views((self) => ({}));
