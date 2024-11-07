@@ -14,6 +14,15 @@ const MainStore = types
   }))
   .actions((self) => {
     return {
+      createAndAddBox() {
+        const newBox = BoxModel.create({
+          id: uuid(),
+          color: getRandomColor(),
+          left: 100,
+          top: 200,
+        });
+        self.boxes.push(newBox);
+      },
       addBox(box) {
         self.boxes.push(box);
       },
