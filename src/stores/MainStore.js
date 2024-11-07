@@ -24,8 +24,10 @@ const MainStore = types
       },
 
       removeBox() {
-        const index = self.boxes.findIndex((box) => box.isSelected);
-        self.boxes.splice(index, 1);
+        const selectedBoxIndex = self.boxes.findIndex((box) => box.isSelected);
+        if (selectedBoxIndex !== -1) {
+          self.boxes.splice(selectedBoxIndex, 1);
+        }
       },
     };
   })
