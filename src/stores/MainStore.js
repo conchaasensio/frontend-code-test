@@ -39,10 +39,11 @@ const MainStore = types
       },
 
       changeBoxColor(color) {
-        const selectedBox = self.boxes.find((box) => box.isSelected);
-        if (selectedBox) {
-          selectedBox.color = color;
-        }
+        self.boxes.forEach((box) => {
+          if (box.isSelected) {
+            box.color = color;
+          }
+        });
       },
     };
   })
