@@ -1,4 +1,5 @@
 import React from 'react';
+import { observer } from 'mobx-react';
 import BoxModel from '../stores/models/Box';
 import store from '../stores/MainStore';
 import { v4 as uuid } from 'uuid';
@@ -25,9 +26,9 @@ function Toolbar() {
       <button onClick={handleAddButton}>Add Box</button>
       <button onClick={handleRemoveButton}>Remove Box</button>
       <input type="color" />
-      <span>No boxes selected</span>
+      <span>Boxes selected: {store.selectedBoxCount}</span>
     </div>
   );
 }
 
-export default Toolbar;
+export default observer(Toolbar);

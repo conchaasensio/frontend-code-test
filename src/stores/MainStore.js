@@ -7,6 +7,11 @@ const MainStore = types
   .model('MainStore', {
     boxes: types.array(BoxModel),
   })
+  .views((self) => ({
+    get selectedBoxCount() {
+      return self.boxes.filter((box) => box.isSelected).length;
+    },
+  }))
   .actions((self) => {
     return {
       addBox(box) {
