@@ -2,9 +2,9 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import BoxDraggable from './BoxDraggable';
 
-function Box({ id, isSelected, handleBoxClick, ...props }) {
+function Box({ id, isSelected, handleBoxClick, color, ...props }) {
   const handleClick = () => {
-    handleBoxClick(id); // Llama a handleBoxClick con el id de esta caja
+    handleBoxClick(id);
   };
   return (
     <BoxDraggable {...props}>
@@ -12,9 +12,16 @@ function Box({ id, isSelected, handleBoxClick, ...props }) {
         onClick={handleClick}
         style={{
           border: isSelected ? '2px solid blue' : '1px solid gray',
-          padding: '10px',
-          backgroundColor: isSelected ? 'lightblue' : 'white',
+          width: '100px',
+          height: '100px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: color,
           cursor: 'pointer',
+          boxShadow: isSelected ? '0px 0px 10px rgba(0, 0, 255, 0.5)' : 'none',
+          transform: isSelected ? 'scale(1.05)' : 'scale(1)',
+          transition: 'all 0.2s ease',
         }}
       >
         Box
