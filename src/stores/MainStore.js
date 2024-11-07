@@ -37,6 +37,13 @@ const MainStore = types
       removeBox() {
         self.boxes = self.boxes.filter((box) => !box.isSelected);
       },
+
+      changeBoxColor(color) {
+        const selectedBox = self.boxes.find((box) => box.isSelected);
+        if (selectedBox) {
+          selectedBox.color = color;
+        }
+      },
     };
   })
   .views((self) => ({}));
