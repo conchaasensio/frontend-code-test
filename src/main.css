@@ -19,10 +19,24 @@ html,
   align-items: center;
   justify-content: center;
 }
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background-color: #333;
+  border-radius: 5px;
+}
+
+.toolbar span {
+  color: white;
+}
+
 .canva {
   width: 1200px;
   height: 675px;
   background-color: aliceblue;
+  position: relative;
 }
 
 .box {
@@ -30,15 +44,10 @@ html,
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.toolbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-}
-
-.toolbar span {
+  border: 1px solid gray;
+  border-radius: 5px;
+  cursor: pointer;
   color: white;
 }
+
+
