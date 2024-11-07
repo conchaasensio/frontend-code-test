@@ -12,7 +12,7 @@ function Canvas({ store }) {
       {store.boxes.map((box, index) => (
         <Box
           id={box.id}
-          key={index}
+          key={box.id}
           color={box.color}
           left={box.left}
           top={box.top}
