@@ -16,10 +16,8 @@ function Box({ box, onUpdatePosition, id, isSelected, handleBoxClick, color, ...
           },
           move(event) {
             isDragging.current = true;
-            const newX = box.x + event.dx;
-            const newY = box.y + event.dy;
 
-            onUpdatePosition(box.id, newX, newY);
+            onUpdatePosition(box.id, event.dx, event.dy);
           },
           end() {
             isDragging.current = false;

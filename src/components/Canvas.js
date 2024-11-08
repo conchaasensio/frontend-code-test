@@ -6,8 +6,14 @@ import Box from '../components/Box';
 function Canvas({ store }) {
   const handleUpdatePosition = (id, x, y) => {
     const box = store.boxes.find((box) => box.id === id);
-    if (box) {
-      box.setPosition(x, y);
+    if (!box.isSelected) {
+      box.setPosition(box.x + x, box.y + y);
+    } else {
+      store.boxes
+        .filter((box) => box.isSelected)
+        .forEach((box) => {
+          box.setPosition(box.x + x, box.y + y);
+        });
     }
   };
   const handleBoxClick = (id) => {
@@ -15,7 +21,7 @@ function Canvas({ store }) {
   };
   return (
     <div className="canva">
-      {store.boxes.map((box, index) => (
+      {store.boxes.map((box) => (
         <Box
           id={box.id}
           key={box.id}
