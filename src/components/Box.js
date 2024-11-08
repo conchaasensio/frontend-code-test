@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import interact from 'interactjs';
 import { observer } from 'mobx-react';
 import BoxDraggable from './BoxDraggable';
