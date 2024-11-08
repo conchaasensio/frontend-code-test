@@ -4,11 +4,11 @@ const BoxModel = types
   .model('Box', {
     id: types.identifier,
     isSelected: types.optional(types.boolean, false),
-    width: types.optional(types.number, 100), // Valor predeterminado de 100
-    height: types.optional(types.number, 100), // Valor predeterminado de 100
+    width: types.optional(types.number, 100),
+    height: types.optional(types.number, 100),
     color: types.optional(types.string, '#FFF000'),
-    left: types.optional(types.number, 200),
-    top: types.optional(types.number, 100),
+    x: types.optional(types.number, 200),
+    y: types.optional(types.number, 100),
   })
   .views((self) => ({}))
   .actions((self) => ({
@@ -17,6 +17,10 @@ const BoxModel = types
     },
     deselect() {
       self.isSelected = false;
+    },
+    setPosition(newX, newY) {
+      self.x = newX;
+      self.y = newY;
     },
   }));
 

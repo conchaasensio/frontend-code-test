@@ -4,6 +4,12 @@ import { observer } from 'mobx-react';
 import Box from '../components/Box';
 
 function Canvas({ store }) {
+  const handleUpdatePosition = (id, x, y) => {
+    const box = store.boxes.find((box) => box.id === id);
+    if (box) {
+      box.setPosition(x, y);
+    }
+  };
   const handleBoxClick = (id) => {
     store.selectBox(id);
   };
@@ -21,6 +27,7 @@ function Canvas({ store }) {
           box={box}
           isSelected={box.isSelected}
           handleBoxClick={handleBoxClick}
+          onUpdatePosition={handleUpdatePosition}
         />
       ))}
     </div>
