@@ -5,16 +5,24 @@ import BoxDraggable from './BoxDraggable';
 
 function Box({ box, onUpdatePosition, id, isSelected, handleBoxClick, color, ...props }) {
   const boxRef = useRef(null);
+  const isDragging = useRef(false);
 
   useEffect(() => {
     if (boxRef.current) {
       interact(boxRef.current).draggable({
         listeners: {
+          start() {
+            isDragging.current = false;
+          },
           move(event) {
+            isDragging.current = true;
             const newX = box.x + event.dx;
             const newY = box.y + event.dy;
 
             onUpdatePosition(box.id, newX, newY);
+          },
+          end() {
+            isDragging.current = false;
           },
         },
       });
@@ -26,14 +34,17 @@ function Box({ box, onUpdatePosition, id, isSelected, handleBoxClick, color, ...
       }
     };
   }, [boxRef, box, onUpdatePosition]);
-  const handleClick = () => {
-    handleBoxClick(id);
+
+  const handleMouseDown = () => {
+    if (!isDragging.current) {
+      handleBoxClick(id);
+    }
   };
   return (
     <BoxDraggable {...props}>
       <div
         ref={boxRef}
-        onClick={handleClick}
+        onClick={handleMouseDown}
         style={{
           position: 'absolute',
           top: box.y,
