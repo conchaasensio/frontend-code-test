@@ -1,7 +1,6 @@
 # Genially Frontend code test
 
-The main objective of this technical excercise was for me to get a good grasp of what kind of problems face developers on Genially. You can find the test instructions in its original README.
-<!-- Añadir un documento con el README original (TEST_REQUIREMENTS.md) y enlazarlo -->
+The main objective of this technical excercise was for me to get a good grasp of what kind of problems face developers on Genially. You can find the test instructions [in its original README](/TEST_REQUIREMENTS.md).
 
 ---
 ## 🗂️ Content
