@@ -29,9 +29,7 @@ const MainStore = types
 
       selectBox(id) {
         const box = self.boxes.find((box) => box.id === id);
-        if (box) {
-          box.isSelected = !box.isSelected;
-        }
+        box.isSelected = !box.isSelected;
         self.saveState();
       },
 
