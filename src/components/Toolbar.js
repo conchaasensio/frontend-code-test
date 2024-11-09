@@ -1,8 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import store from '../stores/MainStore';
 
-function Toolbar() {
+function Toolbar({ store }) {
   const handleAddButton = () => {
     store.createBox();
   };
@@ -18,8 +17,12 @@ function Toolbar() {
 
   return (
     <div className="toolbar">
-      <button onClick={handleAddButton}>Add Box</button>
-      <button onClick={handleRemoveButton}>Remove Box</button>
+      <button data-testid="add-button" onClick={handleAddButton}>
+        Add Box
+      </button>
+      <button data-testid="remove-button" onClick={handleRemoveButton}>
+        Remove Box
+      </button>
       <input type="color" onChange={handleColorChange} />
       <span>Boxes selected: {store.selectedBoxCount}</span>
     </div>
