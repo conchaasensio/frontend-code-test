@@ -32,6 +32,19 @@ const MainStore = types
         }
       },
 
+      moveBox(id, changeX, changeY) {
+        const box = store.boxes.find((box) => box.id === id);
+        if (!box.isSelected) {
+          box.setPosition(box.x + changeX, box.y + changeY);
+        } else {
+          store.boxes
+            .filter((box) => box.isSelected)
+            .forEach((box) => {
+              box.setPosition(box.x + changeX, box.y + changeY);
+            });
+        }
+      },
+
       removeBox() {
         self.boxes = self.boxes.filter((box) => !box.isSelected);
       },
