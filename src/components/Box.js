@@ -8,23 +8,20 @@ function Box({ box, onUpdatePosition, id, isSelected, handleBoxClick, color, ...
   const isDragging = useRef(false);
 
   useEffect(() => {
-    if (boxRef.current) {
-      interact(boxRef.current).draggable({
-        listeners: {
-          start() {
-            isDragging.current = false;
-          },
-          move(event) {
-            isDragging.current = true;
-
-            onUpdatePosition(box.id, event.dx, event.dy);
-          },
-          end() {
-            isDragging.current = false;
-          },
+    interact(boxRef.current).draggable({
+      listeners: {
+        start() {
+          isDragging.current = false;
         },
-      });
-    }
+        move(event) {
+          isDragging.current = true;
+          onUpdatePosition(box.id, event.dx, event.dy);
+        },
+        end() {
+          setTimeout(() => (isDragging.current = false), 0);
+        },
+      },
+    });
 
     return () => {
       if (boxRef.current) {
