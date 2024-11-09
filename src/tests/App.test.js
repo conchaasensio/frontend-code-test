@@ -1,18 +1,27 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import App from '../components/App';
-import store from '../stores/MainStore';
+import { MainStore } from '../stores/MainStore';
 
 test('can select a box', () => {
-  const boxId = createBox();
-  const { getByTestId } = render(<App />);
+  const store = MainStore.create();
+  const box = store.createBox();
+  const boxId = 'box-' + box.id;
+  const { getByTestId } = render(<App store={store} />);
 
   fireEvent.click(getByTestId(boxId));
 
   expect(store.boxes[0].isSelected).toBe(true);
 });
 
-function createBox() {
+test('can remove a box selected', () => {
+  const store = MainStore.create();
   const box = store.createBox();
-  return 'box-' + box.id;
-}
+  const boxId = 'box-' + box.id;
+  const { getByTestId } = render(<App store={store} />);
+  fireEvent.click(getByTestId(boxId));
+
+  fireEvent.click(getByTestId('remove-button'));
+
+  expect(store.boxes).toHaveLength(0);
+});
