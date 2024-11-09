@@ -1,4 +1,4 @@
-import { types } from 'mobx-state-tree';
+import { types, getSnapshot, applySnapshot } from 'mobx-state-tree';
 import { v4 as uuid } from 'uuid';
 import BoxModel from './models/Box';
 import getRandomColor from '../utils/getRandomColor';
@@ -20,9 +20,11 @@ const MainStore = types
           color: getRandomColor(),
         });
         self.boxes.push(newBox);
+        self.saveState();
       },
       addBox(box) {
         self.boxes.push(box);
+        self.saveState();
       },
 
       selectBox(id) {
@@ -30,6 +32,7 @@ const MainStore = types
         if (box) {
           box.isSelected = !box.isSelected;
         }
+        self.saveState();
       },
 
       moveBox(id, changeX, changeY) {
@@ -43,10 +46,12 @@ const MainStore = types
               box.setPosition(box.x + changeX, box.y + changeY);
             });
         }
+        self.saveState();
       },
 
       removeBox() {
         self.boxes = self.boxes.filter((box) => !box.isSelected);
+        self.saveState();
       },
 
       changeBoxColor(color) {
@@ -55,6 +60,24 @@ const MainStore = types
             box.color = color;
           }
         });
+        self.saveState();
+      },
+
+      saveState() {
+        const snapshot = getSnapshot(self);
+        localStorage.setItem('appState', JSON.stringify(snapshot));
+      },
+
+      restoreState() {
+        const savedState = localStorage.getItem('appState');
+        if (savedState) {
+          try {
+            const parsedSnapshot = JSON.parse(savedState);
+            applySnapshot(self, parsedSnapshot);
+          } catch (error) {
+            console.error('Error restoring state:', error);
+          }
+        }
       },
     };
   })
@@ -62,13 +85,6 @@ const MainStore = types
 
 const store = MainStore.create();
 
-const box1 = BoxModel.create({
-  id: uuid(),
-  color: getRandomColor(),
-  left: 0,
-  top: 0,
-});
-
-store.addBox(box1);
+store.restoreState();
 
 export default store;

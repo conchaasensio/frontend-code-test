@@ -1,5 +1,4 @@
 import React from 'react';
-
 import store from '../stores/MainStore';
 import Canvas from './Canvas';
 import Toolbar from './Toolbar';
