@@ -38,6 +38,7 @@ function Box({ box, onUpdatePosition, id, isSelected, handleBoxClick, color, ...
   return (
     <BoxDraggable {...props}>
       <div
+        data-testid={`box-${box.id}`}
         ref={boxRef}
         onClick={handleMouseDown}
         style={{

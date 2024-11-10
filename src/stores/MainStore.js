@@ -21,6 +21,7 @@ const MainStore = types
         });
         self.boxes.push(newBox);
         self.saveState();
+        return newBox;
       },
       addBox(box) {
         self.boxes.push(box);
