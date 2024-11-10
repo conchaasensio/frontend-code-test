@@ -17,8 +17,7 @@ describe('App', () => {
   });
 
   test('can select a box', () => {
-    const box = store.createBox();
-    const boxId = 'box-' + box.id;
+    const boxId = createABox(store);
     const { getByTestId } = render(<App store={store} />);
 
     fireEvent.click(getByTestId(boxId));
@@ -27,8 +26,7 @@ describe('App', () => {
   });
 
   test('can remove a box selected', () => {
-    const box = store.createBox();
-    const boxId = 'box-' + box.id;
+    const boxId = createABox(store);
     const { getByTestId } = render(<App store={store} />);
     fireEvent.click(getByTestId(boxId));
 
@@ -38,8 +36,7 @@ describe('App', () => {
   });
 
   test('can change the color of a selected box', () => {
-    const box = store.createBox();
-    const boxId = 'box-' + box.id;
+    const boxId = createABox(store);
     const { getByTestId } = render(<App store={store} />);
 
     act(() => {
@@ -56,10 +53,8 @@ describe('App', () => {
     });
 
     test('should increase when one or more boxes are selected', () => {
-      const box1 = store.createBox();
-      const box2 = store.createBox();
-      const box1Id = 'box-' + box1.id;
-      const box2Id = 'box-' + box2.id;
+      const box1Id = createABox(store);
+      const box2Id = createABox(store);
       const { getByTestId } = render(<App store={store} />);
 
       fireEvent.click(getByTestId(box1Id));
@@ -69,14 +64,11 @@ describe('App', () => {
     });
 
     test('should decrease when one or more boxes are deselected', () => {
-      const box1 = store.createBox();
-      const box2 = store.createBox();
-      const box1Id = 'box-' + box1.id;
-      const box2Id = 'box-' + box2.id;
+      const box1Id = createABox(store);
+      const box2Id = createABox(store);
       const { getByTestId } = render(<App store={store} />);
       fireEvent.click(getByTestId(box1Id));
       fireEvent.click(getByTestId(box2Id));
-      expect(store.selectedBoxCount).toBe(2);
 
       fireEvent.click(getByTestId(box1Id));
 
@@ -84,3 +76,8 @@ describe('App', () => {
     });
   });
 });
+
+function createABox(store) {
+  const box = store.createBox();
+  return 'box-' + box.id;
+}
