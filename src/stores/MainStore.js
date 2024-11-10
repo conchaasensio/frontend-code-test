@@ -1,4 +1,5 @@
 import { types, getSnapshot, applySnapshot } from 'mobx-state-tree';
+import { UndoManager } from 'mst-middlewares';
 import { v4 as uuid } from 'uuid';
 import BoxModel from './models/Box';
 import getRandomColor from '../utils/getRandomColor';
@@ -62,6 +63,18 @@ export const MainStore = types
         self.saveState();
       },
 
+      undo() {
+        if (undoManager.canUndo) {
+          undoManager.undo();
+        }
+      },
+
+      redo() {
+        if (undoManager.canRedo) {
+          undoManager.redo();
+        }
+      },
+
       saveState() {
         const snapshot = getSnapshot(self);
         localStorage.setItem('appState', JSON.stringify(snapshot));
@@ -83,7 +96,9 @@ export const MainStore = types
   .views((self) => ({}));
 
 const store = MainStore.create();
-
 store.restoreState();
 
+const undoManager = UndoManager.create({}, { targetStore: store });
+
 export default store;
+export { undoManager };
