@@ -9,6 +9,14 @@ export const MainStore = types
     boxes: types.array(BoxModel),
   })
   .views((self) => ({
+    get hasBoxes() {
+      return self.boxes.length > 0;
+    },
+
+    get hasSelectedBoxes() {
+      return self.selectedBoxCount > 0;
+    },
+
     get selectedBoxCount() {
       return self.boxes.filter((box) => box.isSelected).length;
     },

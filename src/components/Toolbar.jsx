@@ -28,10 +28,14 @@ function Toolbar({ store }) {
       <button data-testid="add-button" onClick={handleAddButton}>
         Add Box
       </button>
-      <button data-testid="remove-button" onClick={handleRemoveButton}>
+      <button
+        data-testid="remove-button"
+        onClick={handleRemoveButton}
+        disabled={!store.hasBoxes || !store.hasSelectedBoxes}
+      >
         Remove Box
       </button>
-      <input type="color" onChange={handleColorChange} />
+      <input type="color" onChange={handleColorChange} disabled={!store.hasBoxes || !store.hasSelectedBoxes} />
       <button data-testid="undo-button" onClick={handleUndo} disabled={!store.canUndo}>
         Undo
       </button>
