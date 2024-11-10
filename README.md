@@ -1,11 +1,11 @@
-# Genially Frontend code test
+# Frontend code test
 
-The main objective of this technical excercise was for me to get a good grasp of what kind of problems face developers on Genially. You can find the test instructions [in its original README](/TEST_REQUIREMENTS.md).
+The main objective of this technical excercise was for me to get a good grasp of what kind of problems face developers on . You can find the test instructions [in its original README](/TEST_REQUIREMENTS.md).
 
 ---
 ## 🗂️ Content
 
-- [Genially Frontend code test](#genially-frontend-code-test)
+- [Frontend code test](#frontend-code-test)
   - [🗂️ Content](#️-content)
   - [🚀 How to run the App.](#-how-to-run-the-app)
     - [Pre-requeriments](#pre-requeriments)
@@ -115,7 +115,7 @@ When finished, the app should let the user:
 - [x] Display a counter indicating how many boxes are selected.
 - [x] Support selection, dragging and color changing for multiple boxes.
 - [x] Save the state of the app locally and restore it when it loads.
-- [ ] Undo / Redo capabilities
+- [x] Undo / Redo capabilities
   - **hint**: mobx-state-tree provides a middleware for this.
 
 ***
@@ -127,7 +127,7 @@ When finished, the app should let the user:
 + Add more tests.
 + Add e2e tests.
 + Make it responsive.
-+ Improve the design of the app.
++ Improve the design and architecture of the app.
 + Improve the look and feel and UI of the app.
 + Dockerize the app.
 ***
