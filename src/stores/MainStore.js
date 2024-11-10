@@ -12,6 +12,14 @@ export const MainStore = types
     get selectedBoxCount() {
       return self.boxes.filter((box) => box.isSelected).length;
     },
+
+    get canUndo() {
+      return undoManager.canUndo;
+    },
+
+    get canRedo() {
+      return undoManager.canRedo;
+    },
   }))
   .actions((self) => {
     return {

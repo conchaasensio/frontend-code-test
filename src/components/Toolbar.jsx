@@ -32,10 +32,10 @@ function Toolbar({ store }) {
         Remove Box
       </button>
       <input type="color" onChange={handleColorChange} />
-      <button data-testid="undo-button" onClick={handleUndo}>
+      <button data-testid="undo-button" onClick={handleUndo} disabled={!store.canUndo}>
         Undo
       </button>
-      <button data-testid="redo-button" onClick={handleRedo}>
+      <button data-testid="redo-button" onClick={handleRedo} disabled={!store.canRedo}>
         Redo
       </button>
       <span>Boxes selected: {store.selectedBoxCount}</span>
