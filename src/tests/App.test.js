@@ -70,3 +70,17 @@ test('counter should decrease when one or more boxes are deselected', () => {
 
   expect(store.selectedBoxCount).toBe(1);
 });
+
+test('can change the color of a selected box', () => {
+  const store = MainStore.create();
+  const box = store.createBox();
+  const boxId = 'box-' + box.id;
+  const { getByTestId } = render(<App store={store} />);
+
+  act(() => {
+    fireEvent.click(getByTestId(boxId));
+    store.changeBoxColor('red');
+  });
+
+  expect(store.boxes[0].color).toBe('red');
+});
