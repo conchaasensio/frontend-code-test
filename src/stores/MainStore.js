@@ -12,19 +12,15 @@ export const MainStore = types
     get hasBoxes() {
       return self.boxes.length > 0;
     },
-
     get hasSelectedBoxes() {
       return self.selectedBoxCount > 0;
     },
-
     get selectedBoxCount() {
       return self.boxes.filter((box) => box.isSelected).length;
     },
-
     get canUndo() {
       return undoManager.canUndo;
     },
-
     get canRedo() {
       return undoManager.canRedo;
     },
@@ -44,13 +40,11 @@ export const MainStore = types
         self.boxes.push(box);
         self.saveState();
       },
-
       selectBox(id) {
         const box = self.boxes.find((box) => box.id === id);
         box.isSelected = !box.isSelected;
         self.saveState();
       },
-
       moveBox(id, changeX, changeY) {
         const box = store.boxes.find((box) => box.id === id);
         if (!box.isSelected) {
@@ -64,12 +58,10 @@ export const MainStore = types
         }
         self.saveState();
       },
-
       removeBox() {
         self.boxes = self.boxes.filter((box) => !box.isSelected);
         self.saveState();
       },
-
       changeBoxColor(color) {
         self.boxes.forEach((box) => {
           if (box.isSelected) {
@@ -78,24 +70,20 @@ export const MainStore = types
         });
         self.saveState();
       },
-
       undo() {
         if (undoManager.canUndo) {
           undoManager.undo();
         }
       },
-
       redo() {
         if (undoManager.canRedo) {
           undoManager.redo();
         }
       },
-
       saveState() {
         const snapshot = getSnapshot(self);
         localStorage.setItem('appState', JSON.stringify(snapshot));
       },
-
       restoreState() {
         const savedState = localStorage.getItem('appState');
         if (savedState) {

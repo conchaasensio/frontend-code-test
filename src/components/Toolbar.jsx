@@ -5,20 +5,16 @@ function Toolbar({ store }) {
   const handleAddButton = () => {
     store.createBox();
   };
-
   const handleRemoveButton = () => {
     store.removeBox();
   };
-
   const handleColorChange = (event) => {
     const newColor = event.target.value;
     store.changeBoxColor(newColor);
   };
-
   const handleUndo = () => {
     store.undo();
   };
-
   const handleRedo = () => {
     store.redo();
   };

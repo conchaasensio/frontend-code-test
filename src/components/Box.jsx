@@ -35,6 +35,7 @@ function Box({ box, onUpdatePosition, id, isSelected, handleBoxClick, color, ...
       handleBoxClick(id);
     }
   };
+
   return (
     <BoxDraggable {...props}>
       <div
