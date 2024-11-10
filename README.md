@@ -1,6 +1,6 @@
 # Frontend code test
 
-The main objective of this technical excercise was for me to get a good grasp of what kind of problems face developers on . You can find the test instructions [in its original README](/TEST_REQUIREMENTS.md).
+The main objective of this technical excercise was for me to get a good grasp of what kind of problems face developers in their day to day at the company . You can find the test instructions [in its original README](/TEST_REQUIREMENTS.md).
 
 ---
 ## 🗂️ Content
