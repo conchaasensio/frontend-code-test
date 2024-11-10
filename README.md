@@ -79,17 +79,19 @@ I updated the packages to their latest version, since some of them were really o
 
 ### ✳️ Using JavaScript instead of TypeScript
 
-This was one of the first decisions I had to make. Although the initial project was written in JavaScript, I was aware that knowing TypeScript was valued for the position, and at first, I was determined to do it in this language. However, I ultimately decided to go with JavaScript because, honestly, even though I've been working with TypeScript in my daily work lately, my knowledge isn’t advanced enough to confidently apply it in a project like this one, where I had to learn and apply completely new and unfamiliar technologies in a very limited time. So, for practicality and to feel more comfortable, I ended up choosing JavaScript. Nonetheless, I'm continuing to learn and improve with TypeScript, so I believe I could manage it in TS in a second iteration.
+This was one of the first decisions I had to make. The technical test repository was initially set up in JavaScript, and although I considered implementing it in TypeScript (as I understand it is valued for this role), I ultimately decided to proceed with JavaScript. Given the short timeframe and the need to learn two completely new libraries, I chose to focus on delivery using a language I am more experienced with. This allowed me to prioritize achieving the required functionalities, and I am confident that with more time, I could easily transition this to TypeScript.
 
 ### ✳️ Using mobx-state-tree
 
 This is the app state manager we use at our React apps. It's meant to be used with mobx, and unlike it, is very opinionated as how you should define your stores, models etc.
 
-It was my first time using this library. I've tried to learn the basics within this limited time to get the application working with the required features. I feel that there are many things I could improve, especially in terms of design, so I would like to continue reading the documentation more thoroughly, fully understand how to apply it, and see what improvements I could make.
+As it was my first experience with `mobx-state-tree`, I focused on quickly grasping its fundamentals to implement the required functionality within the timeframe. Despite the learning curve, I successfully integrated it into the project and achieved the expected outcomes. This experience has sparked my interest in further exploring this library to deepen my understanding and identify potential enhancements for future iterations.
 
 ### ✳️ Using interact.js
 
-It was also my first time using this library. I found it very interesting since I hadn’t done anything similar before. As with the previous case, I tried to learn the basics to apply the functionality for making the elements draggable, and although I eventually managed to get it working, I think there is a lot of room for improvement, and there are probably things I haven't taken into account. I'll keep looking over the documentation.
+Genially is a very interactivity-heavy application. Almost everything you use on the app can be moved around with your mouse, selected, scaled, rotated, etc. This library does most of the heavy lifting for them.
+
+This was also my first time working with `interact.js`, and I found it quite engaging since it allowed me to implement draggable elements -something I hadn’t tackled before. Given the timeframe, I focused on learning the essentials to get this functionality up and running, and I was able to achieve the required draggable behavior successfully. Working with interact.js has opened up new possibilities, and I’m keen to explore the documentation further to deepen my understanding and refine this implementation even more in future iterations.
 
 ### ✳️ Testing with React Testing Library
 
@@ -126,7 +128,7 @@ When finished, the app should let the user:
 + Add e2e tests.
 + Make it responsive.
 + Improve the design of the app.
-+ Improve the look and feel of the app.
++ Improve the look and feel and UI of the app.
 + Dockerize the app.
 ***
 
