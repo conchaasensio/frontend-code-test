@@ -56,9 +56,7 @@ Navigate to the app
 
 ## 🌐 View the App deployed in GitHub Pages.
 
-Should you like to take a look to the deployed app, [here you have the link]().
-<!-- Desplegarlo en GitHub Pages y enlazarlo -->
-
+Should you like to take a look to the deployed app, [here you have the link](https://conchaasensio.github.io/frontend-code-test/).
 ***
 
 
